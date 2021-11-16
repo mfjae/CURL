@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CoursePage extends StatelessWidget {
-  const CoursePage({Key? key}) : super(key: key);
+  const CoursePage({Key key}) : super(key: key);
 
   final url = "https://www.musictheory.net/lessons";
   @override
