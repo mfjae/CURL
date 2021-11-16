@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1f225a),
+      //backgroundColor: const Color(0xff1f225a),
       body: Column(
         children: [
           Container(
@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
           const Text(
             'Start Learning',
             style: TextStyle(
-              color: Colors.white,
+              //color: Colors.white,
               fontSize: 22,
               fontFamily: 'Montserrat',
               fontWeight: FontWeight.w600,
