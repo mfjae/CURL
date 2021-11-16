@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import './reusable_card.dart';
-import './icon_content.dart';
+// import './reusable_card.dart';
+// import './icon_content.dart';
+import './curriculumname.dart';
+import './topicdescription.dart';
 
 const activeCardColour = Color(0xffff5722);
 
@@ -114,9 +117,76 @@ class CoursePage extends StatelessWidget {
               //color: Color(0xffffffff),
             ),
           ),
-          const Expanded(
-            child: ReusableCard(
-              colour: activeCardColour,
+          Expanded(
+            child: ListView(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.only(left: 15),
+                  child: Text(
+                    'Basics',
+                    style: TextStyle(
+                      //fontFamily: 'Montserrat',
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      //color: Color(0xffffffff),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: ExpansionTile(
+                    title: const CurriculumName(
+                      topic: 'The Staff, Clefs, and Ledger Lines',
+                    ),
+                    children: [
+                      ListTile(
+                        onTap: launchURL,
+                        title: const TopicDescription(
+                          topicDescription:
+                              'Learn about the Staff, treble and bass clefs, and ledger lines',
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Card(
+                  child: ExpansionTile(
+                    title: const CurriculumName(
+                      topic: 'Note Duration',
+                    ),
+                    children: [
+                      ListTile(
+                        onTap: launchURL,
+                        title: const TopicDescription(
+                          topicDescription:
+                              'Learn about the five types of notes and how flags affect note duration',
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Card(
+                  child: ExpansionTile(
+                    title: const CurriculumName(
+                      topic: 'Measures and Time Signature',
+                    ),
+                    children: [
+                      ListTile(
+                        onTap: () async {
+                          await canLaunch(
+                                  "https://www.musictheory.net/lessons/12")
+                              ? await launch(
+                                  "https://www.musictheory.net/lessons/12")
+                              : throw 'Could not launch "https://www.musictheory.net/lessons/12"';
+                        },
+                        title: const TopicDescription(
+                          topicDescription:
+                              'Learn about measures and how many notes each can contain',
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
