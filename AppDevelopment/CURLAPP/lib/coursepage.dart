@@ -186,6 +186,50 @@ class CoursePage extends StatelessWidget {
                     ],
                   ),
                 ),
+                Card(
+                  child: ExpansionTile(
+                    title: const CurriculumName(
+                      topic: 'Rest Duration',
+                    ),
+                    children: [
+                      ListTile(
+                        onTap: () async {
+                          await canLaunch(
+                                  "https://www.musictheory.net/lessons/13")
+                              ? await launch(
+                                  "https://www.musictheory.net/lessons/13")
+                              : throw 'Could not launch "https://www.musictheory.net/lessons/12"';
+                        },
+                        title: const TopicDescription(
+                          topicDescription:
+                              'Learn about the different types of rest',
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Card(
+                  child: ExpansionTile(
+                    title: const CurriculumName(
+                      topic: 'Dot & Ties',
+                    ),
+                    children: [
+                      ListTile(
+                        onTap: () async {
+                          await canLaunch(
+                                  "https://www.musictheory.net/lessons/14")
+                              ? await launch(
+                                  "https://www.musictheory.net/lessons/14")
+                              : throw 'Could not launch "https://www.musictheory.net/lessons/12"';
+                        },
+                        title: const TopicDescription(
+                          topicDescription:
+                              'Learn how dots and ties modify the duration of notes',
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
