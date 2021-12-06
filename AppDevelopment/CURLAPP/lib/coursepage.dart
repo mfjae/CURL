@@ -9,10 +9,18 @@ import './topicdescription.dart';
 
 const activeCardColour = Color(0xffff5722);
 
-class CoursePage extends StatelessWidget {
+class CoursePage extends StatefulWidget {
   const CoursePage({Key key}) : super(key: key);
 
-  final url = "https://www.musictheory.net/lessons";
+  @override
+  State<CoursePage> createState() => _CoursePageState();
+}
+
+class _CoursePageState extends State<CoursePage> {
+  final url = "https://www.musictheory.net/lessons/10";
+
+  var value = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,6 +128,7 @@ class CoursePage extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
+                //buildCheckbox(),
                 const Padding(
                   padding: EdgeInsets.only(left: 15),
                   child: Text(
@@ -139,10 +148,18 @@ class CoursePage extends StatelessWidget {
                     ),
                     children: [
                       ListTile(
+                        leading: Checkbox(
+                          value: value,
+                          onChanged: (value) {
+                            setState(() {
+                              this.value = value;
+                            });
+                          },
+                        ),
                         onTap: launchURL,
                         title: const TopicDescription(
                           topicDescription:
-                              'Learn about the Staff, treble and bass clefs, and ledger lines',
+                              'Learn about how musical notes, how they are written and the manner in which they are drawn and read',
                         ),
                       )
                     ],
@@ -155,6 +172,14 @@ class CoursePage extends StatelessWidget {
                     ),
                     children: [
                       ListTile(
+                        leading: Checkbox(
+                          value: value,
+                          onChanged: (value) {
+                            setState(() {
+                              this.value = value;
+                            });
+                          },
+                        ),
                         onTap: launchURL,
                         title: const TopicDescription(
                           topicDescription:
@@ -171,6 +196,14 @@ class CoursePage extends StatelessWidget {
                     ),
                     children: [
                       ListTile(
+                        leading: Checkbox(
+                          value: value,
+                          onChanged: (value) {
+                            setState(() {
+                              this.value = value;
+                            });
+                          },
+                        ),
                         onTap: () async {
                           await canLaunch(
                                   "https://www.musictheory.net/lessons/12")
@@ -193,6 +226,14 @@ class CoursePage extends StatelessWidget {
                     ),
                     children: [
                       ListTile(
+                        leading: Checkbox(
+                          value: value,
+                          onChanged: (value) {
+                            setState(() {
+                              this.value = value;
+                            });
+                          },
+                        ),
                         onTap: () async {
                           await canLaunch(
                                   "https://www.musictheory.net/lessons/13")
@@ -215,6 +256,14 @@ class CoursePage extends StatelessWidget {
                     ),
                     children: [
                       ListTile(
+                        leading: Checkbox(
+                          value: value,
+                          onChanged: (value) {
+                            setState(() {
+                              this.value = value;
+                            });
+                          },
+                        ),
                         onTap: () async {
                           await canLaunch(
                                   "https://www.musictheory.net/lessons/14")
@@ -237,6 +286,15 @@ class CoursePage extends StatelessWidget {
       ),
     );
   }
+
+  /*Widget buildCheckbox() => Checkbox(
+        value: value,
+        onChanged: (value) {
+          setState(() {
+            this.value = value;
+          });
+        },
+      );*/
 
   void launchURL() async =>
       await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';

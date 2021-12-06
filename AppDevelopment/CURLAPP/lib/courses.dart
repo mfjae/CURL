@@ -74,9 +74,13 @@ class Courses extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: ReusableCard(
                     colour: activeCardColour,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.paintBrush,
+                      label: 'Painting',
+                    ),
                   ),
                 ),
               ],
@@ -84,15 +88,23 @@ class Courses extends StatelessWidget {
           ),
           Expanded(
             child: Row(
-              children: const [
+              children: [
                 Expanded(
                   child: ReusableCard(
                     colour: activeCardColour,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.camera,
+                      label: 'Video',
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     colour: activeCardColour,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.microphone,
+                      label: 'Singing',
+                    ),
                   ),
                 ),
               ],
